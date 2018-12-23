@@ -1,0 +1,4 @@
+pydrive
+pillow==5.3.0
+picamera
+gpiozero
