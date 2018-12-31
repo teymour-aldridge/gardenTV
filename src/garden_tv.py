@@ -7,13 +7,15 @@ from pydrive.drive import GoogleDrive
 
 
 class GardenTV:
-    def __init__(self, motion_sensor_pin, drive_base_dir='gardentv'):
+    def __init__(self, motion_sensor_pin=4, drive_base_dir='gardentv'):
         """
         Initializes a GardenTV class. Uses PyDrive to open a browser window for users to login to the web interface.
-        :param drive_base_dir: The Google Drive folder to store the files in.
-        :param motion_sensor_pin: The GPIO pin of the motion sensor.
+        :param drive_base_dir: The Google Drive folder to store the files in. The default is 'gardentv'
+        :param motion_sensor_pin: The GPIO pin of the motion sensor. The default value is pin 4.
         """
         assert isinstance(motion_sensor_pin, int)
+
+        # Authenticate user
         gauth = GoogleAuth()
         gauth.LocalWebserverAuth()
         self.drive = GoogleDrive(gauth)
